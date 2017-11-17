@@ -1,0 +1,11 @@
+{
+  "name": "hue-play",
+  "version": "1.0.0",
+  "description": "Playing with Hue lights",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sam Reaves <thesamreaves@gmail.com> (http://www.github.com/samreaves)",
+  "license": "ISC"
+}
