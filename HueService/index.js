@@ -18,14 +18,16 @@ class HueService {
   connect() {
     return new Promise((resolve, reject) => {
 
-      this.getHueBridges().then((bridges) => {
-        this.bridges = bridges.map((bridge) => new Bridge(bridge.id, bridge.ip));
-        resolve(this);
-      }).catch((error) => {
-        console.log('Can\'t find Hue bridges');
-        reject(error);
-      });
-      
+      this.getHueBridges()
+        .then((bridges) => {
+          this.bridges = bridges.map((bridge) => new Bridge(bridge.id, bridge.ip));
+          resolve(this);
+        })
+        .catch((error) => {
+          console.log('Can\'t find Hue bridges');
+          reject(error);
+        });
+
     }).catch((error) => {
       console.log(error);
     });

@@ -8,6 +8,9 @@
 const HueService = require('./HueService');
 
 HueService.connect().then((hueService) => {
+
+  console.log(hueService);
+
   hueService.bridges[0].connect().then((bridge) => {
 
     bridge.client.lights.getAll()

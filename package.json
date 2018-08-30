@@ -9,8 +9,7 @@
   "author": "Sam Reaves <thesamreaves@gmail.com> (http://www.github.com/samreaves)",
   "license": "ISC",
   "dependencies": {
-    "express": "4.16.2",
     "hue-module": "0.1.2",
-    "huejay": "1.7.1"
+    "huejay": "1.8.4"
   }
 }
