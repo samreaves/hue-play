@@ -7,36 +7,20 @@
  */
 
 const huejay = require('huejay'),
-      Bridge = require('./Bridge');
+      Client = require('./Client');
+      creds = require('../.credentials.json');
+
+console.log(creds);
 
 class HueService {
 
   constructor() {
-    this.bridges = [];
+    return this.createClient(creds);
   }
 
-  connect() {
-    return new Promise((resolve, reject) => {
-
-      this.getHueBridges()
-        .then((bridges) => {
-          this.bridges = bridges.map((bridge) => new Bridge(bridge.id, bridge.ip));
-          resolve(this);
-        })
-        .catch((error) => {
-          console.log('Can\'t find Hue bridges');
-          reject(error);
-        });
-
-    }).catch((error) => {
-      console.log(error);
-    });
-  }
-
-  /* Use Huejay to discover the network's Hue Bridge, then store bridge data in memory */
-  getHueBridges() {
-    return huejay.discover();
+  createClient(credentials) {
+    return new Client(credentials);
   }
 }
 
-module.exports = new HueService();
+module.exports = HueService;
